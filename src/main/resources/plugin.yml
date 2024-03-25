@@ -1,0 +1,16 @@
+main: fr.ychampions.YBedwars
+name: YBedwars
+version: 1.0
+author: "YChampions"
+maps:
+  - waterfall:
+      upgradeLocation:
+        x: 0
+        y: 0
+        z: 0
+      generators:
+        - type: IRON
+          location:
+            x: 0
+            y: 0
+            z: 0
