@@ -13,6 +13,11 @@ public class Generator {
 
     private boolean activated = false;
 
+    public Generator(Location location, GeneratorType type){
+        this.location = location;
+        this.type = type;
+    }
+
     public void spawn() {
 
         if (!activated) return;
@@ -35,4 +40,11 @@ public class Generator {
         }
     }
 
+    public Location getLocation() {
+        return location;
+    }
+
+    public GeneratorType getType() {
+        return type;
+    }
 }

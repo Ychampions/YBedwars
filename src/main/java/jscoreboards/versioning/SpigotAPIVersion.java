@@ -13,17 +13,7 @@ public enum SpigotAPIVersion {
   v1_8(ObjectiveWrapper_v1_8_v1_12.class, TeamWrapper_v1_8_v1_11.class, 0),
   v1_9(ObjectiveWrapper_v1_8_v1_12.class, TeamWrapper_v1_8_v1_11.class, 1),
   v1_10(ObjectiveWrapper_v1_8_v1_12.class, TeamWrapper_v1_8_v1_11.class, 2),
-  v1_11(ObjectiveWrapper_v1_8_v1_12.class, TeamWrapper_v1_8_v1_11.class, 3),
-
-  v1_12(ObjectiveWrapper_v1_8_v1_12.class, TeamWrapper_v1_12.class, 4),
-
-  v1_13(ObjectiveWrapper_v1_13.class, TeamWrapper_v1_13.class, 5),
-
-  v1_14(ObjectiveWrapper_v1_14_v1_18.class, TeamWrapper_v1_14_v1_18.class, 6),
-  v1_15(ObjectiveWrapper_v1_14_v1_18.class, TeamWrapper_v1_14_v1_18.class, 7),
-  v1_16(ObjectiveWrapper_v1_14_v1_18.class, TeamWrapper_v1_14_v1_18.class, 8),
-  v1_17(ObjectiveWrapper_v1_14_v1_18.class, TeamWrapper_v1_14_v1_18.class, 9),
-  v1_18(ObjectiveWrapper_v1_14_v1_18.class, TeamWrapper_v1_14_v1_18.class, 10);
+  v1_11(ObjectiveWrapper_v1_8_v1_12.class, TeamWrapper_v1_8_v1_11.class, 3);
 
   SpigotAPIVersion(
       Class<? extends InternalObjectiveWrapper> internalObjectiveWrapperClass,
@@ -71,7 +61,7 @@ public enum SpigotAPIVersion {
     try {
       versionToAssign = SpigotAPIVersion.valueOf(built.toString());
     } catch (IllegalArgumentException ignored) {
-      versionToAssign = SpigotAPIVersion.v1_17;
+      versionToAssign = SpigotAPIVersion.v1_11;
 
       Bukkit.getLogger().warning("=================================");
       Bukkit.getLogger().warning("Your version of Spigot (package " + serverPackageVersionString + " / search " + built.toString() + ") is not officially supported or tested by JScoreboards.");

@@ -1,6 +1,9 @@
 package fr.ychampions.gamemanager;
 
 import fr.ychampions.YBedwars;
+import fr.ychampions.config.ConfigurationManager;
+import fr.ychampions.gui.GUIManager;
+import fr.ychampions.setup.SetupWizardManager;
 import jscoreboards.JPerPlayerScoreboard;
 import jscoreboards.JScoreboard;
 import jscoreboards.JScoreboardOptions;
@@ -15,13 +18,21 @@ public class GameManager {
 
     private YBedwars plugin;
     private JPerPlayerScoreboard scoreboard;
+    private SetupWizardManager setupWizardManager;
+    private ConfigurationManager configurationManager;
+    private GUIManager guiManager;
 
     private GameState state;
 
     public GameManager(YBedwars plugin){
         this.plugin = plugin;
 
-        this.scoreboard = new JPerPlayerScoreboard(player -> "&a&lBedwars", player -> {
+        this.setupWizardManager = new SetupWizardManager(this);
+        this.configurationManager = new ConfigurationManager(this);
+
+        this.guiManager = new GUIManager();
+
+        this.scoreboard = new JPerPlayerScoreboard(player -> "&e&lYBedwars ", player -> {
             List<String> lines = new ArrayList<>();
             //todo : scoreboard
             if (player.getGameMode().equals(GameMode.SPECTATOR)) {
@@ -63,5 +74,17 @@ public class GameManager {
 
     public YBedwars getPlugin() {
         return this.plugin;
+    }
+
+    public SetupWizardManager getSetupWizardManager() {
+        return setupWizardManager;
+    }
+
+    public GUIManager getGuiManager(){
+        return this.guiManager;
+    }
+
+    public ConfigurationManager getConfigurationManager() {
+        return this.configurationManager;
     }
 }

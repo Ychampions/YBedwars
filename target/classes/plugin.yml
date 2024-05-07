@@ -2,3 +2,6 @@ main: fr.ychampions.YBedwars
 name: YBedwars
 version: 1.0
 author: "YChampions"
+commands:
+  setup:
+    description: Setup une map YBedwars

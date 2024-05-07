@@ -40,12 +40,7 @@ public abstract class JScoreboard {
       e.printStackTrace();
       Bukkit.getLogger().severe("Failed to initialize JScoreboards- please send the full stacktrace above to https://github.com/JordanOsterberg/JScoreboards. If you are using someone else's plugin instead of developing your own, report this issue to them.");
     }
-
-    if (SpigotAPIVersion.getCurrent().lessThan(SpigotAPIVersion.v1_13)) {
-      maxLineLength = 32;
-    } else {
       maxLineLength = 128;
-    }
   }
 
   // MARK: Public API
@@ -260,7 +255,7 @@ public abstract class JScoreboard {
       String prefix;
       String suffix = "";
 
-      int cutoff = SpigotAPIVersion.getCurrent().lessThan(SpigotAPIVersion.v1_13) ? 16 : 64;
+      int cutoff = SpigotAPIVersion.getCurrent().lessThan(SpigotAPIVersion.v1_11) ? 16 : 64;
       if (entry.length() <= cutoff) {
         prefix = entry;
       } else {

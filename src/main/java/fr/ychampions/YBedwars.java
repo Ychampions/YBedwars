@@ -1,5 +1,8 @@
 package fr.ychampions;
 
+import fr.ychampions.commands.SetupWizardCommand;
+import fr.ychampions.events.InventoryClickListener;
+import fr.ychampions.events.PlayerItemInteractListener;
 import fr.ychampions.events.PlayerLoginEventListener;
 import fr.ychampions.gamemanager.GameManager;
 import org.bukkit.Bukkit;
@@ -19,6 +22,10 @@ public class YBedwars extends JavaPlugin {
         }
 
         getServer().getPluginManager().registerEvents(new PlayerLoginEventListener(gameManager), this);
+        getServer().getPluginManager().registerEvents(new PlayerItemInteractListener(gameManager), this);
+        getServer().getPluginManager().registerEvents(new InventoryClickListener(gameManager), this);
+
+        getCommand("setup").setExecutor(new SetupWizardCommand(gameManager));
 
     }
 
